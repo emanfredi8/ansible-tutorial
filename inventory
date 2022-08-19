@@ -1,2 +1,2 @@
-10.211.55.16
-10.211.55.17
+10.211.55.16 apache_package=httpd php_package=php
+10.211.55.17 apache_package=httpd php_package=php

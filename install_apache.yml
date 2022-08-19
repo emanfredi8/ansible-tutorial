@@ -3,20 +3,11 @@
   become: true
   tasks:
 
-
-  - name: update repository index
-    dnf:
+  - name: install apache and php
+    package:
+      name: 
+        - "{{ apache_package }}"
+        - "{{ php_package }}"
+      state: latest
       update_cache: yes
-    when: ansible_distribution == "CentOS" and ansible_distribution_version == "9"
-
-  - name: install apache
-    dnf:
-      name: httpd
-      state: latest
-    when: ansible_distribution == "CentOS" and ansible_distribution_version == "9"
-
-  - name: add php support for apache
-    dnf:
-      name: php
-      state: latest
     when: ansible_distribution == "CentOS" and ansible_distribution_version == "9"
