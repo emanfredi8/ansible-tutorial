@@ -1,0 +1,9 @@
+---
+- hosts: windows
+  roles:
+    - win_copy_file
+
+- hosts: windows
+  roles:
+    - win_install_chocolatey
+  

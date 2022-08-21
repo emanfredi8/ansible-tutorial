@@ -1,0 +1,13 @@
+---
+  - name: create directory
+    tags: copy_file
+    ansible.windows.win_file:
+      path: C:\temp
+      state: directory
+
+  - name: copy file
+    tags: copy_file
+    ansible.windows.win_copy:
+      src: ./files/myfile
+      dest: C:\temp
+  

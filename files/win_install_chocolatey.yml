@@ -1,0 +1,32 @@
+---
+- name: demo
+  hosts: windows
+  become: false
+  gather_facts: true
+  tasks:
+  - debug:
+      var: ansible_hostname
+    
+  - name: test connection
+    ansible.windows.win_ping:
+
+  - name: Install chocolatey
+    tags: install_chocolatey
+    win_chocolatey:
+        name:
+          - chocolatey
+          - chocolatey-core.extension
+        state: present
+    
+  - name: create directory
+    tags: copy_file
+    ansible.windows.win_file:
+      path: C:\temp
+      state: directory
+
+  - name: copy file
+    tags: copy_file
+    ansible.windows.win_copy:
+      src: ./files/myfile
+      dest: C:\temp
+  

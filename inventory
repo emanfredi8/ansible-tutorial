@@ -1,2 +1,15 @@
+[centos]
 10.211.55.16 apache_package=httpd php_package=php
 10.211.55.17 apache_package=httpd php_package=php
+
+[windows]
+10.211.55.4
+
+[windows:vars]
+[windows:vars]
+ansible_user=ansi
+ansible_password=ansi
+ansible_connection=winrm
+ansible_winrm_transport=basic
+ansible_port=5986
+ansible_winrm_server_cert_validation=ignore

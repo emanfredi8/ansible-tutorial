@@ -1,0 +1,8 @@
+---
+- name: Install chocolatey
+  tags: install_chocolatey
+  win_chocolatey:
+      name:
+        - chocolatey
+        - chocolatey-core.extension
+      state: present
