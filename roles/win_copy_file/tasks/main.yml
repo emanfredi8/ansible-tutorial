@@ -10,4 +10,23 @@
     ansible.windows.win_copy:
       src: ./files/myfile
       dest: C:\temp
+      force: yes
+
+  - name: get file cotents
+    ansible.windows.win_shell: 'type C:\temp\myfile'
+    register: file_contents
+
+  - name: display file_contents
+    debug:
+      msg: "File contents: {{ file_contents.stdout_lines }}"
+
+  - name: find 'test'
+    ansible.builtin.lineinfile:
+      path: C:\temp\myfile
+      line: "test"
+      state: absent
+    check_mode: yes
+    register: exists
+    failed_when: exists is changed
+      
   

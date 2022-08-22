@@ -6,4 +6,6 @@
 - hosts: windows
   roles:
     - win_install_chocolatey
-  
+- hosts: windows
+  roles:
+    - win_apache_installer
